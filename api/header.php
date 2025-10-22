@@ -14,7 +14,6 @@ session_start();
     <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png" />
     <link rel="manifest" href="./favicons/site.webmanifest" />
 
-    <!-- === Primary SEO Meta Tags === -->
     <title>DashPesa - Fast, Simple, Reliable Loans</title>
     <meta name="description"
         content="Get fast mobile loans up to Ksh. 10,000 sent directly to your M-Pesa in minutes. No CRB check, no paperwork. Apply now with DashPesa.">
@@ -22,15 +21,15 @@ session_start();
         content="fast loans, mobile loans, kenya, mpesa loans, instant cash, no crb check, dashpesa, pesa chapchap">
     <meta name="author" content="DashPesa">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.yourdomain.com/"> <!-- TODO: Replace with your live domain -->
+    <link rel="canonical" href="https://dashpesa.vercel.app/"> 
 
     <!-- === Open Graph / Facebook Meta Tags === -->
     <meta property="og:title" content="DashPesa - Fast, Simple, Reliable Loans">
     <meta property="og:description"
         content="Get fast mobile loans up to Ksh. 10,000 sent directly to your M-Pesa in minutes. No CRB check, no paperwork.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.yourdomain.com/"> <!-- TODO: Replace with your live domain -->
-    <meta property="og:image" content="https://www.yourdomain.com/social-image.jpg">
+    <meta property="og:url" content="https://dashpesa.vercel.app/"> <!-- TODO: Replace with your live domain -->
+    <meta property="og:image" content="https://dashpesa.vercel.app/social-image.jpg">
     <!-- TODO: Add a link to a social sharing image (e.g., 1200x630px) -->
 
     <!-- === Twitter Card Meta Tags === -->
@@ -38,7 +37,7 @@ session_start();
     <meta name="twitter:title" content="DashPesa - Fast, Simple, Reliable Loans">
     <meta name="twitter:description"
         content="Get fast mobile loans up to Ksh. 10,000 sent directly to your M-Pesa in minutes. No CRB check, no paperwork.">
-    <meta name="twitter:image" content="https://www.yourdomain.com/social-image.jpg">
+    <meta name="twitter:image" content="https://dashpesa.vercel.app/social-image.jpg">
     <!-- TODO: Use the same social image link -->
 
     <!-- === Stylesheets & Fonts === -->

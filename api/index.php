@@ -4,16 +4,16 @@
 session_start();
 
 // Load Composer's autoloader for .env files
-require __DIR__ . '/vendor/autoload.php';
+// require __DIR__ . '/vendor/autoload.php';
 
-// Load environment variables from .env
-try {
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
-} catch (Exception $e) {
-    // Handle error if .env file is missing
-    die("Error: .env file not found. Please create one from example.env.");
-}
+// // Load environment variables from .env
+// try {
+//     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+//     $dotenv->load();
+// } catch (Exception $e) {
+//     // Handle error if .env file is missing
+//     die("Error: .env file not found. Please create one from example.env.");
+// }
 
 // Get the page parameter, default to 'home'
 $page = $_GET['page'] ?? 'home';

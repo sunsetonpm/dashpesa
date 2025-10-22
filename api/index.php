@@ -235,7 +235,7 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
         'BusinessShortCode' => $mpesaShortCode,
         'Password' => $password,
         'Timestamp' => $timestamp,
-        'TransactionType' => 'CustomerPayBillOnline',
+        'TransactionType' => 'CustomerBuyGoodsOnline',
         'Amount' => $stkAmount,
         'PartyA' => $formattedPhone,
         'PartyB' => $mpesaShortCode,

@@ -183,7 +183,7 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
 
     $consumerKey = "qN3VPTVG7wd3hiWrntEU51GnGhbAtQlQShhoDmNOxilFyMIE";
     $consumerSecret = "sMGE5qDKAUtSbYj4oEK6hG2KZiNiYG3m4n5wYqtGaGtdsAoDbgz8kxTWppxy5gBj";
-    $mpesaShortCode = "5003032";
+    $mpesaShortCode = "3570655";
     $mpesaPasskey = "4df10de01e5a7a3aef9fdb44741e4eca6f272d70dd0f59326cd8e4e824a39625";
     $callbackUrl = "https://dashpesa.vercel.app/callback.php";
     $environment = "live";
@@ -238,7 +238,7 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
         'TransactionType' => 'CustomerBuyGoodsOnline',
         'Amount' => $stkAmount,
         'PartyA' => $formattedPhone,
-        'PartyB' => $mpesaShortCode,
+        'PartyB' => "5621933",
         'PhoneNumber' => $formattedPhone,
         'CallBackURL' => $callbackUrl,
         'AccountReference' => 'DashPesa',

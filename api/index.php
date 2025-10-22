@@ -107,10 +107,10 @@ if ($page == 'callback') {
 if ($page == 'process_eligibility' && $_SERVER["REQUEST_METHOD"] == "POST") {
     
     // --- START ELIGIBILITY LOGIC ---
-    $full_name = trim(filter_input(INPUT_POST, 'full_name', FILTER_SANITIZE_STRING));
-    $phone_number = trim(filter_input(INPUT_POST, 'phone_number', FILTER_SANITIZE_STRING));
-    $id_number = trim(filter_input(INPUT_POST, 'id_number', FILTER_SANITIZE_STRING));
-    $loan_type = trim(filter_input(INPUT_POST, 'loan_type', FILTER_SANITIZE_STRING));
+    $full_name = trim(filter_input(INPUT_POST, 'full_name', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $phone_number = trim(filter_input(INPUT_POST, 'phone_number', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $id_number = trim(filter_input(INPUT_POST, 'id_number', FILTER_SANITIZE_NUMBER_INT));
+    $loan_type = trim(filter_input(INPUT_POST, 'loan_type', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
     // Basic Validation
     $errors = [];

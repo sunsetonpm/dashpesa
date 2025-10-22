@@ -186,6 +186,7 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
     $mpesaShortCode = "YOUR_PAYBILL_OR_TILL";
     $mpesaPasskey = "YOUR_MPESA_PASSKEY";
     $callbackUrl = "https://dashpesa.vercel.app/callback.php";
+    $environment = "live";
 
     // Set API URLs
     $authUrl = ($environment == 'live') ? "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials" : "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";

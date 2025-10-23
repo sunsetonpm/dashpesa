@@ -676,9 +676,9 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="mb-4 sm:mb-0">
                                         <h3 class="text-2xl font-bold text-gray-900">Loan Amount: Ksh. 3,400</h3>
                                         <p class="text-gray-600">Service Fee: <span class="font-semibold text-gray-800">Ksh.
-                                                70</span></p>
+                                                120</span></p>
                                     </div>
-                                    <button onclick="showPaymentModal(3400, 70)"
+                                    <button onclick="showPaymentModal(3400, 120)"
                                         class="w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300 shadow-lg">
                                         Apply & Pay Fee
                                     </button>
@@ -692,9 +692,9 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="mb-4 sm:mb-0">
                                         <h3 class="text-2xl font-bold text-gray-900">Loan Amount: Ksh. 4,750</h3>
                                         <p class="text-gray-600">Service Fee: <span class="font-semibold text-gray-800">Ksh.
-                                                95</span></p>
+                                                150</span></p>
                                     </div>
-                                    <button onclick="showPaymentModal(4750, 95)"
+                                    <button onclick="showPaymentModal(4750, 150)"
                                         class="w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300 shadow-lg">
                                         Apply & Pay Fee
                                     </button>
@@ -708,9 +708,9 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="mb-4 sm:mb-0">
                                         <h3 class="text-2xl font-bold text-gray-900">Loan Amount: Ksh. 5,300</h3>
                                         <p class="text-gray-600">Service Fee: <span class="font-semibold text-gray-800">Ksh.
-                                                100</span></p>
+                                                200</span></p>
                                     </div>
-                                    <button onclick="showPaymentModal(5300, 100)"
+                                    <button onclick="showPaymentModal(5300, 200)"
                                         class="w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300 shadow-lg">
                                         Apply & Pay Fee
                                     </button>

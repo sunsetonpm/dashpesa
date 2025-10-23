@@ -181,10 +181,15 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
     // $callbackUrl = getenv('MPESA_CALLBACK_URL');
     // $environment = getenv('MPESA_ENVIRONMENT');
 
-    $consumerKey = "qN3VPTVG7wd3hiWrntEU51GnGhbAtQlQShhoDmNOxilFyMIE";
-    $consumerSecret = "sMGE5qDKAUtSbYj4oEK6hG2KZiNiYG3m4n5wYqtGaGtdsAoDbgz8kxTWppxy5gBj";
-    $mpesaShortCode = "3570655";
-    $mpesaPasskey = "4df10de01e5a7a3aef9fdb44741e4eca6f272d70dd0f59326cd8e4e824a39625";
+    $consumerKey = getenv('MPESA_CONSUMER_KEY');
+    $consumerSecret = getenv('MPESA_CONSUMER_SECRET');
+    $mpesaShortCode = getenv('MPESA_SHORTCODE');
+    $mpesaPasskey = getenv('MPESA_PASSKEY');
+
+    // $consumerKey = "qN3VPTVG7wd3hiWrntEU51GnGhbAtQlQShhoDmNOxilFyMIE";
+    // $consumerSecret = "sMGE5qDKAUtSbYj4oEK6hG2KZiNiYG3m4n5wYqtGaGtdsAoDbgz8kxTWppxy5gBj";
+    // $mpesaShortCode = "3570655";
+    // $mpesaPasskey = "4df10de01e5a7a3aef9fdb44741e4eca6f272d70dd0f59326cd8e4e824a39625";
     $callbackUrl = "https://dashpesa.vercel.app/callback.php";
     $environment = "live";
 
@@ -662,7 +667,8 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="container mx-auto px-6">
                         <div class="max-w-2xl mx-auto text-center">
                             <h2 class="text-3xl font-bold text-gray-800 mb-3">Congratulations,
-                                <?php echo explode(' ', $full_name)[0]; ?>!</h2>
+                                <?php echo explode(' ', $full_name)[0]; ?>!
+                            </h2>
                             <p class="text-lg text-gray-600 mb-8">You are eligible for the following loan options. Please select
                                 one to proceed.</p>
                         </div>

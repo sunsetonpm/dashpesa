@@ -3,18 +3,6 @@
 // Session must be started on every request
 session_start();
 
-// Load Composer's autoloader for .env files
-// require __DIR__ . '/vendor/autoload.php';
-
-// // Load environment variables from .env
-// try {
-//     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-//     $dotenv->load();
-// } catch (Exception $e) {
-//     // Handle error if .env file is missing
-//     die("Error: .env file not found. Please create one from example.env.");
-// }
-
 // Get the page parameter, default to 'home'
 $page = $_GET['page'] ?? 'home';
 
@@ -72,22 +60,6 @@ if ($page == 'callback') {
         fwrite($log, $logMessage);
         fclose($log);
 
-        /*
-        // --- !! CRITICAL: UPDATE YOUR DATABASE !! ---
-        $db_host = getenv('DB_HOST');
-        $db_name = getenv('DB_NAME');
-        $db_user = getenv('DB_USER');
-        $db_pass = getenv('DB_PASS');
-        try {
-            $db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
-            $stmt = $db->prepare("UPDATE loan_applications SET status = 'Paid', mpesa_receipt = :r, service_fee_paid = :a WHERE checkout_id = :cid");
-            $stmt->execute([':r' => $mpesaReceiptNumber, ':a' => $amount, ':cid' => $checkoutRequestID]);
-        } catch (PDOException $e) {
-            $log = fopen($logFile, "a");
-            fwrite($log, "DATABASE ERROR: " . $e->getMessage() . "\n");
-            fclose($log);
-        }
-        */
 
     } else {
         // --- PAYMENT FAILED OR CANCELED ---
@@ -143,22 +115,6 @@ if ($page == 'process_eligibility' && $_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['phone_number'] = $phone_number;
     $_SESSION['id_number'] = $id_number;
     $_SESSION['loan_type'] = $loan_type;
-
-    /*
-    // --- TODO: SAVE TO DATABASE ---
-    // This is where you would save the initial application
-    try {
-        // $db = new PDO(...)
-        // $stmt = $db->prepare("INSERT INTO loan_applications (name, phone, id_number, loan_type) VALUES (?, ?, ?, ?)");
-        // $stmt->execute([$full_name, $phone_number, $id_number, $loan_type]);
-    } catch (PDOException $e) {
-        // Handle database error
-        $_SESSION['errors'] = ["A database error occurred. Please try again later."];
-        header("Location: index.php?page=eligibility");
-        exit;
-    }
-    */
-
     // Clear any old errors and redirect to the loan options page
     unset($_SESSION['errors']);
     unset($_SESSION['form_data']);
@@ -168,29 +124,13 @@ if ($page == 'process_eligibility' && $_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-// --- 3. SPECIAL CASE: PROCESS PAYMENT FORM (STK PUSH) ---
-// This processes a POST request and redirects. It sends no HTML.
 if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // --- START PAYMENT LOGIC ---
-    // // Get keys from environment
-    // $consumerKey = getenv('MPESA_CONSUMER_KEY');
-    // $consumerSecret = getenv('MPESA_CONSUMER_SECRET');
-    // $mpesaShortCode = getenv('MPESA_SHORTCODE');
-    // $mpesaPasskey = getenv('MPESA_PASSKEY');
-    // $callbackUrl = getenv('MPESA_CALLBACK_URL');
-    // $environment = getenv('MPESA_ENVIRONMENT');
 
     $consumerKey = getenv('MPESA_CONSUMER_KEY');
     $consumerSecret = getenv('MPESA_CONSUMER_SECRET');
     $mpesaShortCode = getenv('MPESA_SHORTCODE');
     $mpesaPasskey = getenv('MPESA_PASSKEY');
-
-    // $consumerKey = "qN3VPTVG7wd3hiWrntEU51GnGhbAtQlQShhoDmNOxilFyMIE";
-    // $consumerSecret = "sMGE5qDKAUtSbYj4oEK6hG2KZiNiYG3m4n5wYqtGaGtdsAoDbgz8kxTWppxy5gBj";
-    // $mpesaShortCode = "3570655";
-    // $mpesaPasskey = "4df10de01e5a7a3aef9fdb44741e4eca6f272d70dd0f59326cd8e4e824a39625";
-    $callbackUrl = "https://dashpesa.vercel.app/callback.php";
+    $callbackUrl = getenv('MPESA_CALLBACK_URL');
     $environment = "live";
 
     // Set API URLs
@@ -251,8 +191,6 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
     ];
 
     // Store CheckoutRequestID in session to match callback
-    // $_SESSION['checkout_id'] = $stkPayload['CheckoutRequestID']; // Note: Safaricom returns this ID in the *response*
-
     $stkData = json_encode($stkPayload);
 
     $ch = curl_init($stkPushUrl);
@@ -273,14 +211,6 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($stkResponse->ResponseCode) && $stkResponse->ResponseCode == "0") {
         // Save CheckoutRequestID to match callback with user
         $_SESSION['CheckoutRequestID'] = $stkResponse->CheckoutRequestID;
-
-        /*
-        // --- TODO: SAVE CHECKOUT ID TO DATABASE ---
-        // $db = new PDO(...)
-        // $stmt = $db->prepare("UPDATE loan_applications SET checkout_id = ? WHERE phone_number = ? AND status = 'Pending'");
-        // $stmt->execute([$stkResponse->CheckoutRequestID, $phone_number]);
-        */
-
         $message = urlencode($stkResponse->CustomerMessage);
         header("Location: index.php?page=status&status=success&message=$message");
         exit;
@@ -294,8 +224,6 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-// --- 4. START HTML OUTPUT ---
-// If the script hasn't exited by now, it means we are displaying a page.
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -312,15 +240,15 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
         content="fast loans, mobile loans, kenya, mpesa loans, instant cash, no crb check, dashpesa, pesa chapchap">
     <meta name="author" content="DashPesa">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="httpsa://www.yourdomain.com/"> <!-- TODO: Replace with your live domain -->
+    <link rel="canonical" href="https://dashpesa.vercel.app/">
 
     <!-- === Open Graph / Facebook Meta Tags === -->
     <meta property="og:title" content="DashPesa - Fast, Simple, Reliable Loans">
     <meta property="og:description"
         content="Get fast mobile loans up to Ksh. 10,000 sent directly to your M-Pesa in minutes. No CRB check, no paperwork.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="httpsa://www.yourdomain.com/"> <!-- TODO: Replace with your live domain -->
-    <meta property="og:image" content="httpsa://www.yourdomain.com/social-image.jpg">
+    <meta property="og:url" content="https://dashpesa.vercel.app/"> 
+    <meta property="og:image" content="https://dashpesa.vercel.app/social-image.jpg">
     <!-- TODO: Add a social image link -->
 
     <!-- === Twitter Card Meta Tags === -->
@@ -328,7 +256,7 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="twitter:title" content="DashPesa - Fast, Simple, Reliable Loans">
     <meta name="twitter:description"
         content="Get fast mobile loans up to Ksh. 10,000 sent directly to your M-Pesa in minutes. No CRB check, no paperwork.">
-    <meta name="twitter:image" content="httpsa://www.yourdomain.com/social-image.jpg">
+    <meta name="twitter:image" content="https://dashpesa.vercel.app/social-image.jpg">
     <!-- TODO: Use the same social image link -->
 
     <!-- === Stylesheets & Fonts === -->
@@ -651,9 +579,8 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
                 </section>
 
                 <?php
-                break; // End 'eligibility' page
+                break; 
         
-            // --- CASE: APPLY (LOAN OPTIONS) PAGE ---
             case 'apply':
                 // Security check: If user details aren't in session, redirect to eligibility
                 if (!isset($_SESSION['full_name']) || !isset($_SESSION['phone_number'])) {
@@ -905,7 +832,8 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
             <hr class="border-gray-700 my-8">
             <div class="text-center text-gray-500">
                 &copy; <?php echo date('Y'); ?> DashPesa. All rights reserved.
-                <p class="text-sm mt-2">Disclaimer: This is a sample application. Not a real financial service.</p>
+                <p class="text-sm mt-2">Disclaimer: All Peocesses are automated. Do not transact outside the website.
+                </p>
             </div>
         </div>
     </footer>

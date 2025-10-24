@@ -247,7 +247,7 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
     <meta property="og:description"
         content="Get fast mobile loans up to Ksh. 10,000 sent directly to your M-Pesa in minutes. No CRB check, no paperwork.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dashpesa.vercel.app/"> 
+    <meta property="og:url" content="https://dashpesa.vercel.app/">
     <meta property="og:image" content="https://dashpesa.vercel.app/social-image.jpg">
     <!-- TODO: Add a social image link -->
 
@@ -264,13 +264,17 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- === Google Tag Snippet === -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_TAG_ID"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QPN9LW2NM"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-YOUR_TAG_ID');
+
+        gtag('config', 'G-0QPN9LW2NM');
     </script>
+
     <!-- End Google Tag Snippet -->
 
     <!-- === INLINED CSS (from style.css) === -->
@@ -579,8 +583,8 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
                 </section>
 
                 <?php
-                break; 
-        
+                break;
+
             case 'apply':
                 // Security check: If user details aren't in session, redirect to eligibility
                 if (!isset($_SESSION['full_name']) || !isset($_SESSION['phone_number'])) {

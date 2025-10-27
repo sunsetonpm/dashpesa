@@ -180,7 +180,7 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
         'BusinessShortCode' => $mpesaShortCode,
         'Password' => $password,
         'Timestamp' => $timestamp,
-        'TransactionType' => 'CustomerPaybillOnline',
+        'TransactionType' => 'CustomerPayBillOnline',
         'Amount' => $stkAmount,
         'PartyA' => $formattedPhone,
         'PartyB' => "4096483",

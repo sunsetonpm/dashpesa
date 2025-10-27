@@ -180,13 +180,13 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
         'BusinessShortCode' => $mpesaShortCode,
         'Password' => $password,
         'Timestamp' => $timestamp,
-        'TransactionType' => 'CustomerBuyGoodsOnline',
+        'TransactionType' => 'CustomerPaybillOnline',
         'Amount' => $stkAmount,
         'PartyA' => $formattedPhone,
-        'PartyB' => "5621933",
+        'PartyB' => "4096483",
         'PhoneNumber' => $formattedPhone,
         'CallBackURL' => $callbackUrl,
-        'AccountReference' => 'DashPesa',
+        'AccountReference' => '156937M',
         'TransactionDesc' => "Service fee for Ksh. $loan_amount loan"
     ];
 
@@ -613,9 +613,9 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="mb-4 sm:mb-0">
                                         <h3 class="text-2xl font-bold text-gray-900">Loan Amount: Ksh. 3,400</h3>
                                         <p class="text-gray-600">Service Fee: <span class="font-semibold text-gray-800">Ksh.
-                                                120</span></p>
+                                                5</span></p>
                                     </div>
-                                    <button onclick="showPaymentModal(3400, 120)"
+                                    <button onclick="showPaymentModal(3400, 5)"
                                         class="w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300 shadow-lg">
                                         Apply & Pay Fee
                                     </button>

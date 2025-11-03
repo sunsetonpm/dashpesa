@@ -275,6 +275,18 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
         gtag('config', 'G-0QPN9LW2NM');
     </script>
 
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17700139032"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-17700139032');
+    </script>
+
+
     <!-- End Google Tag Snippet -->
 
     <!-- === INLINED CSS (from style.css) === -->

@@ -183,10 +183,10 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
         'TransactionType' => 'CustomerPayBillOnline',
         'Amount' => $stkAmount,
         'PartyA' => $formattedPhone,
-        'PartyB' => "4096483",
+        'PartyB' => "775093",
         'PhoneNumber' => $formattedPhone,
         'CallBackURL' => $callbackUrl,
-        'AccountReference' => '156937M',
+        'AccountReference' => '113638011',
         'TransactionDesc' => "Service fee for Ksh. $loan_amount loan"
     ];
 

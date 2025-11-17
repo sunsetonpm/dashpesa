@@ -403,15 +403,15 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
                 <section class="hero-bg py-20 md:py-32">
                     <div class="container mx-auto px-6 text-center">
                         <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
-                            Fast, Simple, Reliable Loans
+                            Fast, Simple & Reliable
                         </h1>
                         <p class="text-lg md:text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
-                            Get the cash you need, right when you need it. Fast approval, no paperwork, no CRB check. Straight
+                            Pata the mkopo you need, right when you need it. Fast approval, no paperwork, no CRB check. Straight
                             to your M-Pesa.
                         </p>
                         <a href="index.php?page=eligibility"
                             class="bg-blue-600 text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-blue-700 transition duration-300 shadow-lg">
-                            Apply for Your Loan Now
+                            Apply Now
                         </a>
                     </div>
                 </section>
@@ -434,7 +434,7 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
                                     <h3 class="text-2xl font-bold text-gray-900 mb-3">1. Check Eligibility</h3>
                                     <p class="text-gray-600">Fill in our simple 30-second form with your Name, Phone, and ID
-                                        number to see the loan amount you qualify for.</p>
+                                        number to see the mkopo amount you qualify for.</p>
                                 </div>
                             </div>
                             <!-- Step 2 -->
@@ -464,8 +464,8 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
                                                 d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                                         </svg>
                                     </div>
-                                    <h3 class="text-2xl font-bold text-gray-900 mb-3">3. Get Your Cash</h3>
-                                    <p class="text-gray-600">Once the fee is confirmed, your loan is instantly processed and
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-3">3. Get Your Pesa</h3>
+                                    <p class="text-gray-600">Once the fee is confirmed, your mkopo is instantly processed and
                                         disbursed directly to your M-Pesa wallet.</p>
                                 </div>
                             </div>

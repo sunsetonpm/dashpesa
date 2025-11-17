@@ -234,31 +234,6 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- === Primary SEO Meta Tags === -->
     <title>DashPesa - Fast, Simple, Reliable Loans</title>
-    <meta name="description"
-        content="Get fast mobile loans up to Ksh. 10,000 sent directly to your M-Pesa in minutes. No CRB check, no paperwork. Apply now with DashPesa.">
-    <meta name="keywords"
-        content="fast loans, mobile loans, kenya, mpesa loans, instant cash, no crb check, dashpesa, pesa chapchap">
-    <meta name="author" content="DashPesa">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://dashpesa.vercel.app/">
-
-    <!-- === Open Graph / Facebook Meta Tags === -->
-    <meta property="og:title" content="DashPesa - Fast, Simple, Reliable Loans">
-    <meta property="og:description"
-        content="Get fast mobile loans up to Ksh. 10,000 sent directly to your M-Pesa in minutes. No CRB check, no paperwork.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dashpesa.vercel.app/">
-    <meta property="og:image" content="https://dashpesa.vercel.app/social-image.jpg">
-    <!-- TODO: Add a social image link -->
-
-    <!-- === Twitter Card Meta Tags === -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="DashPesa - Fast, Simple, Reliable Loans">
-    <meta name="twitter:description"
-        content="Get fast mobile loans up to Ksh. 10,000 sent directly to your M-Pesa in minutes. No CRB check, no paperwork.">
-    <meta name="twitter:image" content="https://dashpesa.vercel.app/social-image.jpg">
-    <!-- TODO: Use the same social image link -->
-
     <!-- === Stylesheets & Fonts === -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">

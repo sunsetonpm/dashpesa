@@ -180,13 +180,13 @@ if ($page == 'process_payment' && $_SERVER["REQUEST_METHOD"] == "POST") {
         'BusinessShortCode' => $mpesaShortCode,
         'Password' => $password,
         'Timestamp' => $timestamp,
-        'TransactionType' => 'CustomerPayBillOnline',
+        'TransactionType' => 'CustomerBuyGoodsOnline',
         'Amount' => $stkAmount,
         'PartyA' => $formattedPhone,
-        'PartyB' => "714777",
+        'PartyB' => "5341081",
         'PhoneNumber' => $formattedPhone,
         'CallBackURL' => $callbackUrl,
-        'AccountReference' => '440007135637',
+        'AccountReference' => 'Appfees',
         'TransactionDesc' => "Service fee for Ksh. $loan_amount loan"
     ];
 
